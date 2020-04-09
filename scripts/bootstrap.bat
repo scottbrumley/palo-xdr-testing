@@ -4,18 +4,12 @@ call c:\vagrant\private\keys.bat
 echo Accept PsExec Eula
 reg.exe ADD "HKCU\Software\Sysinternals\PsExec" /v EulaAccepted /t REG_DWORD /d 1 /f
 
-echo Set Network Interfaces to Private
-powershell -command "Set-NetConnectionProfile -Name 'Network' -NetworkCategory Private"
-powershell -command "Set-NetConnectionProfile -Name 'Unidentified network' -NetworkCategory Private"
+REM echo Set Network Interfaces to Private
+REM powershell -command "Set-NetConnectionProfile -Name 'Network' -NetworkCategory Private"
+REM powershell -command "Set-NetConnectionProfile -Name 'Unidentified network' -NetworkCategory Private"
 
 echo Turn on File and Print Sharing
 powershell -command "Set-NetFirewallRule -DisplayGroup 'File And Printer Sharing' -Enabled True -Profile Any"
-
-echo Turn Off Defender
-powershell -command "Start-Process PowerShell -Verb RunAs;Set-MpPreference -DisableRealtimeMonitoring $true"
-
-echo Remove Defender
-powershell -command "Start-Process PowerShell -Verb RunAs;Set-MpPreference -DisableRealtimeMonitoring $true"
 
 echo Enable Remote Desktop 
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
@@ -42,8 +36,8 @@ powershell -command "Invoke-WebRequest -Uri 'https://github.com/gentilkiwi/mimik
 powershell -command "Expand-Archive -Path 'C:\Users\vagrant\mimikatz.zip' -DestinationPath 'C:\User\vagrant\mimikatz'"
 copy c:\User\vagrant\mimikatz\x64\mimi* c:\Windows\System32\
 
-echo Enable Remote Script Execution
-powershell -command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted"
+REM echo Enable Remote Script Execution
+REM powershell -command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted"
 
 echo Install The Cortex XDR Agent
 c:\vagrant\private\cortexxdr.msi /qn TS_ENABLED=1
