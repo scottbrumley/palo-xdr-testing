@@ -13,7 +13,7 @@ This project is designed to build a test environment for Palo Alto Networks Cort
 
 ---
 ## Default Setup
-1. **git clone git@github.com:scottbrumley/palo-xdr-testing.git or Download from GitHub**
+1. **git clone https://github.com/scottbrumley/palo-xdr-testing.git or Download from GitHub**
 2. **Copy XDR Agent installer into project palo-xdr-testing**
 3. **Add Two Windows 10 Pro License Keys to scripts/keys.bat**
 4. **vagrant up**
