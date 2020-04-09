@@ -11,7 +11,7 @@ Vagrant.configure(2) do |config|
     host02.vm.box = "sbrumley/palo-win10"
     host02.vm.box_version = "1.1"
     host02.vm.hostname = "host02"
-    #host02.vm.network "private_network", ip: "10.0.2.4"
+    host02.vm.network "private_network", ip: "10.0.2.4", auto_config: false
     host02.vm.guest = :windows
     host02.vm.communicator = "winrm"
     host02.vm.boot_timeout = 600
@@ -22,8 +22,11 @@ Vagrant.configure(2) do |config|
 
 
     ## Deep six Defender
-    host02.vm.provision "shell", privileged: true, path: "scripts/defender.ps1"
-  
+    #host02.vm.provision "shell", privileged: true, powershell_elevated_interactive: true, path: "scripts/defender.ps1"
+    host02.vm.provision "shell", privileged: "true", powershell_elevated_interactive: "true", inline: <<-SHELL
+        Set-MpPreference -DisableRealtimeMonitoring $true
+        SHELL
+
     host02.vm.provider "virtualbox" do |vm|
         vm.name = "host02"
         vm.gui = false 
@@ -46,7 +49,7 @@ Vagrant.configure(2) do |config|
     host01.vm.box = "sbrumley/palo-win10"
     host01.vm.box_version = "1.1"
     host01.vm.hostname = "host01"
-    #host01.vm.network "private_network", ip: "10.0.2.3"
+    host01.vm.network "private_network", ip: "10.0.2.3",auto_config: false
     host01.vm.guest = :windows
     host01.vm.communicator = "winrm"
     host01.vm.boot_timeout = 600
@@ -76,6 +79,7 @@ Vagrant.configure(2) do |config|
   ### Start Up Linux Host03
   #config.vm.define "host03" do |host03|
   #  host03.vm.box = "hashicorp/bionic64"
+  #  host03.vm.network "private_network", ip: "10.0.2.5", auto_config: false
   #  host03.vm.provider "virtualbox" do |vm|
   #          vm.name = "host03"
   #          vm.gui = false

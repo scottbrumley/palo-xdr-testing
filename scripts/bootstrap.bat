@@ -28,13 +28,10 @@ echo If the firewall does not exist, create one
 powershell -command "New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22"
 
 echo Get PSExec
-powershell -command "Invoke-WebRequest -Uri 'https://download.sysinternals.com/files/PSTools.zip' -OutFile 'C:\Users\vagrant\PSTools.zip'"
-powershell -command "Expand-Archive -Path 'C:\Users\vagrant\PSTools.zip' -DestinationPath 'C:\Windows\System32'"
+powershell -command "Set-MpPreference -DisableRealtimeMonitoring $true;Expand-Archive -Path 'C:\Users\vagrant\tools\PSTools.zip' -DestinationPath 'C:\Windows\System32'"
 
 echo Get Mimikatz
-powershell -command "Invoke-WebRequest -Uri 'https://github.com/gentilkiwi/mimikatz/releases/download/2.2.0-20200308-1/mimikatz_trunk.zip' -OutFile 'c:\Users\vagrant\mimikatz.zip'"
-powershell -command "Expand-Archive -Path 'C:\Users\vagrant\mimikatz.zip' -DestinationPath 'C:\User\vagrant\mimikatz'"
-copy c:\User\vagrant\mimikatz\x64\mimi* c:\Windows\System32\
+powershell -command "Set-MpPreference -DisableRealtimeMonitoring $true;Expand-Archive -Path 'C:\Users\vagrant\tools\mimikatz.zip' -DestinationPath 'C:\User\vagrant\mimikatz';cp c:\User\vagrant\mimikatz\x64\mimi* c:\Windows\System32\"
 
 REM echo Enable Remote Script Execution
 REM powershell -command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted"
