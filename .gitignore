@@ -1,0 +1,28 @@
+# OS generated files #
+######################
+.DS_Store
+
+# Vagrant Created Local Files #
+###############################
+.vagrant
+
+#### Unversioned Files ####
+###########################
+.idea/
+palo-xdr-testing.iml
+## Ignore the Cortex Installer ##
+#################################
+/cortexxdr.msi
+/linuxos.sh
+
+## Ignore Windows License File ##
+#################################
+/scripts/keys.bat
+
+
+/private/*
+/private/keys.bat
+/private/linuxos.sh
+/private/
+/private/cortexxdr.msi
+
