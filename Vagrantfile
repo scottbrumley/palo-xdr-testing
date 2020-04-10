@@ -23,9 +23,9 @@ Vagrant.configure(2) do |config|
 
     ## Deep six Defender
     #host02.vm.provision "shell", privileged: true, powershell_elevated_interactive: true, path: "scripts/defender.ps1"
-    host02.vm.provision "shell", privileged: "true", powershell_elevated_interactive: "true", inline: <<-SHELL
-        Set-MpPreference -DisableRealtimeMonitoring $true
-        SHELL
+    #host02.vm.provision "shell", privileged: "true", powershell_elevated_interactive: "true", inline: <<-SHELL
+    #    Set-MpPreference -DisableRealtimeMonitoring $true
+    #    SHELL
 
     host02.vm.provider "virtualbox" do |vm|
         vm.name = "host02"

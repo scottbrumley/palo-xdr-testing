@@ -28,16 +28,18 @@ echo If the firewall does not exist, create one
 powershell -command "New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22"
 
 echo Get PSExec
-powershell -command "Set-MpPreference -DisableRealtimeMonitoring $true;Expand-Archive -Path 'C:\Users\vagrant\tools\PSTools.zip' -DestinationPath 'C:\Windows\System32'"
+PowerShell Start-Process PowerShell -Verb RunAs; Set-MpPreference -DisableRealtimeMonitoring $true
+PowerShell Expand-Archive -Force -Path "C:\vagrant\tools\PSTools.zip" -DestinationPath "C:\Windows\System32"
 
 echo Get Mimikatz
-powershell -command "Set-MpPreference -DisableRealtimeMonitoring $true;Expand-Archive -Path 'C:\Users\vagrant\tools\mimikatz.zip' -DestinationPath 'C:\User\vagrant\mimikatz';cp c:\User\vagrant\mimikatz\x64\mimi* c:\Windows\System32\"
+PowerShell Expand-Archive -Force -Path "C:\vagrant\tools\mimikatz.zip" -DestinationPath "C:\Users\Vagrant"
+PowerShell cp C:\Users\Vagrant\mimikatz\x64\* C:\Windows\System32
 
 REM echo Enable Remote Script Execution
 REM powershell -command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted"
 
 echo Install The Cortex XDR Agent
-c:\vagrant\private\cortexxdr.msi /qn TS_ENABLED=1
+"c:\vagrant\private\cortexxdr.msi" /qn TS_ENABLED=1
 
 echo Checkin Cortex XDR Agent
 "c:\Program Files\Palo Alto Neworks\Traps\cytool" checkin
