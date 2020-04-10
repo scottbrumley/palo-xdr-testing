@@ -6,7 +6,7 @@
 # you're doing.
 Vagrant.configure(2) do |config|
 
-  config.vm.define "host02" do |host02|
+config.vm.define "host02" do |host02|
     # Every Vagrant virtual environment requires a box to build off of.
     host02.vm.box = "sbrumley/palo-win10"
     host02.vm.box_version = "1.1"
@@ -29,7 +29,7 @@ Vagrant.configure(2) do |config|
 
     host02.vm.provider "virtualbox" do |vm|
         vm.name = "host02"
-        vm.gui = false 
+        vm.gui = false
         vm.cpus = 1
         vm.memory = 2048
     end
@@ -38,10 +38,10 @@ Vagrant.configure(2) do |config|
     host02.vm.provision "shell", path: "scripts/bootstrap.bat", privileged: true
 
     ## SSH Keys
-    #host02.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys" 
+    #host02.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
     #host02.ssh.private_key_path = "~/.ssh/id_rsa"
     #host02.ssh.forward_agent = true
-  
+
   end
 
   config.vm.define "host01" do |host01|
@@ -59,17 +59,17 @@ Vagrant.configure(2) do |config|
     host01.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", auto_correct: true
     host01.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
     host01.vm.provision "shell", privileged: true, path: "scripts/defender.ps1"
-  
-  
+
+
     host01.vm.provider "virtualbox" do |vm|
         vm.name = "host01"
-        vm.gui = false 
+        vm.gui = false
         vm.cpus = 1
         vm.memory = 2048
     end
-  
+
     ## SSH Keys
-    #host01.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys" 
+    #host01.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
     #host01.ssh.private_key_path = "~/.ssh/id_rsa"
     #host01.ssh.forward_agent = true
 
@@ -78,7 +78,8 @@ Vagrant.configure(2) do |config|
 
   ## Start Up Linux Host03
   config.vm.define "host03" do |host03|
-    host03.vm.box = "hashicorp/bionic64"
+    host03.vm.hostname = "host03"
+    host03.vm.box = "ubuntu/bionic64"
     host03.vm.network "private_network", ip: "10.0.2.5", auto_config: false
     host03.vm.provider "virtualbox" do |vm|
             vm.name = "host03"
