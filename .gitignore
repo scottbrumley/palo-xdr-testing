@@ -20,11 +20,7 @@ palo-xdr-testing.iml
 /scripts/keys.bat
 
 
-/private/*
-/private/keys.bat
-/private/linuxos.sh
 /private/
-/private/cortexxdr.msi
 
 /images/
-/images/palo-xdr-test-lab.png
+/ubuntu-bionic-18.04-cloudimg-console.log
