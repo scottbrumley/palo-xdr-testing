@@ -35,8 +35,10 @@ echo Get Mimikatz
 PowerShell Expand-Archive -Force -Path "C:\vagrant\tools\mimikatz.zip" -DestinationPath "C:\Users\Vagrant"
 PowerShell cp C:\Users\Vagrant\mimikatz\x64\* C:\Windows\System32
 
-REM echo Enable Remote Script Execution
-REM powershell -command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted"
+echo Enable Remote Script Execution
+PowerShell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process -Force
+PowerShell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
+PowerShell Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope LocalMachine -Force
 
 echo Install The Cortex XDR Agent
 "c:\vagrant\private\cortexxdr.msi" /qn TS_ENABLED=1

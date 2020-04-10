@@ -76,16 +76,16 @@ Vagrant.configure(2) do |config|
     host01.vm.provision "shell", path: "scripts/bootstrap.bat", privileged: true
   end
 
-  ### Start Up Linux Host03
-  #config.vm.define "host03" do |host03|
-  #  host03.vm.box = "hashicorp/bionic64"
-  #  host03.vm.network "private_network", ip: "10.0.2.5", auto_config: false
-  #  host03.vm.provider "virtualbox" do |vm|
-  #          vm.name = "host03"
-  #          vm.gui = false
-  #          vm.cpus = 1
-  #          vm.memory = 2048
-  #  end
-  #  host03.vm.provision "shell", path: "scripts/bootstrap.sh", privileged: true
-  #end
+  ## Start Up Linux Host03
+  config.vm.define "host03" do |host03|
+    host03.vm.box = "hashicorp/bionic64"
+    host03.vm.network "private_network", ip: "10.0.2.5", auto_config: false
+    host03.vm.provider "virtualbox" do |vm|
+            vm.name = "host03"
+            vm.gui = false
+            vm.cpus = 1
+            vm.memory = 2048
+    end
+    host03.vm.provision "shell", path: "scripts/bootstrap.sh", privileged: true
+  end
 end
