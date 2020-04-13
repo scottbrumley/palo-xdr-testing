@@ -61,3 +61,9 @@ You can Remote Desktop into the host or SSH.
 ### SSH
    **vagrant ssh (host01 or host02)**
    
+  ## Building Base Box
+  VAGRANT_VAGRANTFILE=Vagrantfile-build vagrant up
+  
+  ## Building Run Box
+  vagrant up
+  
