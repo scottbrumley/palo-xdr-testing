@@ -35,7 +35,7 @@ config.vm.define "host02" do |host02|
     end
 
     ## Bootstrap OS
-    host02.vm.provision "shell", path: "scripts/bootstrap.bat", privileged: true
+    host02.vm.provision "shell", path: "scripts/bootstrap-build.bat", privileged: true
 
     ## SSH Keys
     #host02.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
@@ -73,7 +73,7 @@ config.vm.define "host02" do |host02|
     #host01.ssh.private_key_path = "~/.ssh/id_rsa"
     #host01.ssh.forward_agent = true
 
-    host01.vm.provision "shell", path: "scripts/bootstrap.bat", privileged: true
+    host01.vm.provision "shell", path: "scripts/bootstrap-build.bat", privileged: true
   end
 
   ## Start Up Linux Host03
