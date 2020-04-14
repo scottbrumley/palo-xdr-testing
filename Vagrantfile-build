@@ -8,8 +8,9 @@ Vagrant.configure(2) do |config|
 
 config.vm.define "host02" do |host02|
     # Every Vagrant virtual environment requires a box to build off of.
-    host02.vm.box = "sbrumley/palo-win10"
-    host02.vm.box_version = "1.1"
+    host02.vm.box = "package"
+    #host02.vm.box = "sbrumley/palo-win10"
+    #host02.vm.box_version = "1.1"
     host02.vm.hostname = "host02"
     host02.vm.network "private_network", ip: "10.0.2.4", auto_config: false
     host02.vm.guest = :windows
@@ -46,8 +47,9 @@ config.vm.define "host02" do |host02|
 
   config.vm.define "host01" do |host01|
     # Every Vagrant virtual environment requires a box to build off of.
-    host01.vm.box = "sbrumley/palo-win10"
-    host01.vm.box_version = "1.1"
+    host01.vm.box = "package"
+    #host01.vm.box = "sbrumley/palo-win10"
+    #host01.vm.box_version = "1.1"
     host01.vm.hostname = "host01"
     host01.vm.network "private_network", ip: "10.0.2.3",auto_config: false
     host01.vm.guest = :windows
