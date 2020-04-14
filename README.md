@@ -12,6 +12,10 @@ This project is designed to build a test environment for Palo Alto Networks Cort
 - Disk Space (20 GB should be sufficient)
 
 ---
+## How To Video
+[![](http://img.youtube.com/vi/4YPtoW6nD28/0.jpg)](http://www.youtube.com/watch?v=4YPtoW6nD28 "XDR Atomic Testing")
+
+---
 ## Default Setup
 1. **git clone https://github.com/scottbrumley/palo-xdr-testing.git or Download from GitHub**
 2. **Copy XDR Agent installer into project palo-xdr-testing**
