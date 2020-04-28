@@ -11,7 +11,10 @@ config.vm.define "host02" do |host02|
     host02.vm.box = "sbrumley/palo-win10"
     host02.vm.box_version = "1.2"
     host02.vm.hostname = "host02"
-    host02.vm.network "private_network", ip: "10.0.2.4", auto_config: false
+    host02.vm.network "private_network", ip: "10.0.4.4", auto_config: false
+    host02.vm.provision "shell",
+      run: "always",
+      inline: "route add default gw 10.0.4.1"
     host02.vm.guest = :windows
     host02.vm.communicator = "winrm"
     host02.vm.boot_timeout = 600
