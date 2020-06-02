@@ -21,3 +21,5 @@ write-output "Running Privilege Escalation Attacks"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\privilege-escalation\atomic-T1053.bat"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\privilege-escalation\atomic-T1103.bat"
 
+write-output "Running Defense Evasion"
+C:\vagrant\atomic-test\windows\defense-evasion\atomic-T1027.ps1
