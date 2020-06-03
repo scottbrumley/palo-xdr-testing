@@ -7,6 +7,10 @@ write-output "Running Impact Attacks"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\impact\atomic-T1485.bat"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\impact\atomic-T1531.bat"
 
+write-output "Running Discovery Attacks"
+C:\vagrant\atomic-test\windows\discovery\atomic-T1016.ps1
+C:\vagrant\atomic-test\windows\discovery\atomic-T1033.ps1
+
 write-output "Running Lateral Movement Attacks"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\lateral-movement\atomic-T1097.bat"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\lateral-movement\atomic-T1077.bat"
