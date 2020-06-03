@@ -9,5 +9,6 @@ echo "Running Defense Evasion Attacks"
 echo "Running Discovery Attacks"
 /vagrant/atomic-test/linux/discovery/atomic-T1016.sh
 /vagrant/atomic-test/linux/discovery/atomic-T1033.sh
+/vagrant/atomic-test/linux/discovery/atomic-T1082.sh
 
 
