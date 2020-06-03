@@ -16,6 +16,7 @@ write-output "Running Persistence Attacks"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\persistence\atomic-T1136.bat"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\persistence\atomic-T1197.bat"
 C:\vagrant\atomic-test\windows\persistence\atomic-T1158.ps1
+C:\vagrant\atomic-test\windows\persistence\atomic-T1060.ps1
 
 write-output "Running Privilege Escalation Attacks"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\privilege-escalation\atomic-T1053.bat"
