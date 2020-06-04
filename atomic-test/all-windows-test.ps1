@@ -12,6 +12,10 @@ C:\vagrant\atomic-test\windows\discovery\atomic-T1016.ps1
 C:\vagrant\atomic-test\windows\discovery\atomic-T1033.ps1
 C:\vagrant\atomic-test\windows\discovery\atomic-T1082.ps1
 
+write-output "Running Execution Attacks"
+C:\vagrant\atomic-test\windows\discovery\atomic-T1106.ps1
+
+
 write-output "Running Lateral Movement Attacks"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\lateral-movement\atomic-T1097.bat"
 cmd.exe /c  "C:\vagrant\atomic-test\windows\lateral-movement\atomic-T1077.bat"
