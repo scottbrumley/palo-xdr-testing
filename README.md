@@ -19,15 +19,24 @@ This project is designed to build a test environment for Palo Alto Networks Cort
 ## Default Setup
 1. **git clone https://github.com/scottbrumley/palo-xdr-testing.git or Download from GitHub**
 2. **Copy XDR Agent installer into project palo-xdr-testing**
-3. **Add Two Windows 10 Pro License Keys to scripts/keys.bat**
-4. **vagrant up**
+3. **Optional Cymulate Testing Agent**
+4. **Add Two Windows 10 Pro License Keys to scripts/keys.bat**
+5. **vagrant up**
+
+### Agents
+Include agents in a directory called private in your directory
+- Cortex Windows Agent = cortexxdr.msi
+- Cortex Linux Agent = linuxos.sh
+- Cymulate Windows Agent = Cymulate.msi (Optional)
+- Cymulate Linux Agent = Cymulate.zip (Optional)
 
 ### Example Key File
-Put the Windows License keys in the private directory.  Name it keys.bat.
+Put the Windows License keys in the private directory.  Name it keys.bat.  If Cymulate testing agent is used.
    ~~~
    @echo off
    set HOST01=<Windows Key for HOST01>
    set HOST02=<Windows Key for HOST02>
+   set CYMULATE=
    ~~~       
 
 ---
