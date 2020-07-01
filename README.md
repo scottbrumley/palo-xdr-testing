@@ -24,7 +24,7 @@ This project is designed to build a test environment for Palo Alto Networks Cort
 5. **vagrant up**
 
 ### Agents
-Include agents in a directory called private in your directory
+Include agents in a directory called private in your project directory
 - Cortex Windows Agent = cortexxdr.msi
 - Cortex Linux Agent = linuxos.sh
 - Cymulate Windows Agent = Cymulate.msi (Optional)
